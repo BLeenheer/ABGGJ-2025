@@ -11,8 +11,19 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     public GameObject playerController;
 
+    [Header("UI Elements")]
+    [SerializeField]
+    GameObject mainMenuUI;
+    [SerializeField]
+    GameObject pauseUI;
+    [SerializeField]
+    GameObject levelUI;
+
+    bool paused = false;
     string currentLevel;
     LevelManager currentLevelManager;
+
+    int deathCount = 0, bubblePopCount = 0;
 
     void Awake()
     {
@@ -35,7 +46,17 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (!paused)
+            {
+                Pause();
+            }
+            else
+            {
+                Resume();
+            }
+        }
     }
 
     /// <summary>
@@ -44,6 +65,9 @@ public class GameManager : MonoBehaviour
     public void LoadMainMenu()
     {
         SceneManager.LoadScene("MAIN");
+        ResetGame();
+        mainMenuUI.SetActive(true);
+        levelUI.SetActive(false);
     }
 
     /// <summary>
@@ -52,6 +76,8 @@ public class GameManager : MonoBehaviour
     /// <param name="scene"></param>
     public void LoadLevel(Scene scene)
     {
+        mainMenuUI.SetActive(false);
+        levelUI.SetActive(true);
         LoadLevel(scene.name);
     }
 
@@ -74,10 +100,58 @@ public class GameManager : MonoBehaviour
     public void WinGame()
     {
         //TODO: Win the game!
+        //Loads the GAME_WIN screen
+        SceneManager.LoadScene("GAME_WIN");
     }
 
+    /// <summary>
+    /// Forces the game to quit out NOW. Not applicable to web builds.
+    /// </summary>
     public void ExitGame()
     {
         Application.Quit();
+    }
+
+    void ResetGame()
+    {
+        deathCount = 0;
+        bubblePopCount = 0;
+        Resume();
+    }
+
+    /// <summary>
+    /// Stops time and shows the pause menu
+    /// </summary>
+    public void Pause()
+    {
+        paused = true;
+        Time.timeScale = 0f;
+        pauseUI.SetActive(true);
+    }
+
+    /// <summary>
+    /// Resumes time and closes the pause menu
+    /// </summary>
+    public void Resume()
+    {
+        paused = false;
+        Time.timeScale = 1f;
+        pauseUI.SetActive(false);
+    }
+
+    /// <summary>
+    /// Adds +1 death to the death counter
+    /// </summary>
+    public void IncrementDeathCount()
+    {
+        deathCount++;
+    }
+
+    /// <summary>
+    /// Adds +1 bubble pop to the bubble pop counter
+    /// </summary>
+    public void IncrementBubblePopCount()
+    {
+        bubblePopCount++;
     }
 }
