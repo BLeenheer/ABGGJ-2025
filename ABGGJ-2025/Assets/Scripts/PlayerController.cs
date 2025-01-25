@@ -49,13 +49,14 @@ public class PlayerController : MonoBehaviour
     {
         if (bubbleEnabled)
         {
-            rb2D.AddForce(Vector2.up * floatForce);
-            rb2D.AddForce(movement * moveForce * Time.deltaTime);
+            if (rb2D.linearVelocity.magnitude < maxVelocity) rb2D.AddForce(Vector2.up * floatForce);
+            if (rb2D.linearVelocity.magnitude < maxVelocity) rb2D.AddForce(movement * moveForce * Time.deltaTime);
         } else
         {
-            if (isGrounded)
+            if (isGrounded & movement.magnitude > 0.1)
             {
-                rb2D.AddForce(movement * moveForce * Time.deltaTime * Vector2.right);
+                //if(rb2D.linearVelocity.magnitude < maxVelocity) rb2D.AddForce(movement * moveSpeed * Time.deltaTime * Vector2.right);
+                rb2D.MovePosition(new Vector2(transform.position.x, transform.position.y) + (movement * moveSpeed * Time.deltaTime * Vector2.right));
             }
         }
     }
@@ -64,6 +65,8 @@ public class PlayerController : MonoBehaviour
     {
         bubbleEnabled = true;
         SetBubble();
+        rb2D.angularVelocity = 0f;
+        rb2D.AddForce(popForce * Vector2.up);
     }
 
 
@@ -81,6 +84,7 @@ public class PlayerController : MonoBehaviour
         bubble.SetActive(bubbleEnabled);
         //boxCollider.enabled = !bubbleEnabled;
         //circleCollider.enabled = bubbleEnabled;
+        rb2D.freezeRotation = !bubbleEnabled;
     }
 
     /// <summary>
