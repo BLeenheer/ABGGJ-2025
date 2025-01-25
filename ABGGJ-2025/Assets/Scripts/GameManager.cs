@@ -152,7 +152,7 @@ public class GameManager : MonoBehaviour
     {
         deathCount++;
         TMP_DeathCount.text = "Deaths: " + deathCount.ToString();
-        Debug.Log("Bubbles Popped: " + deathCount);
+        //Debug.Log("Bubbles Popped: " + deathCount);
     }
 
     /// <summary>
@@ -162,6 +162,6 @@ public class GameManager : MonoBehaviour
     {
         bubblePopCount++;
         TMP_BubblePopCount.text = "Popped: " + bubblePopCount.ToString();
-        Debug.Log("Bubbles Popped: " + bubblePopCount);
+        //Debug.Log("Bubbles Popped: " + bubblePopCount);
     }
 }
