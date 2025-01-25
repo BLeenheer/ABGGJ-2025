@@ -19,12 +19,17 @@ public class LevelManager : MonoBehaviour
         GameManager.Instance.SetLevelManager(this);
     }
 
+    private void Start()
+    {
+        RespawnPlayer();
+    }
+
     /// <summary>
     /// Respawns the player back at the spawn point.
     /// </summary>
     public void RespawnPlayer()
     {
-        Instantiate(GameManager.Instance.playerController, playerSpawnPoint);
+        Instantiate(GameManager.Instance.playerController, playerSpawnPoint.transform.position, new Quaternion(0,0,0,0));
     }
 
     /// <summary>

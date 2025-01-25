@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -9,18 +10,18 @@ public class PlayerController : MonoBehaviour
     GameObject bubble;
 
     [SerializeField]
-    float floatForce = 10f, moveForce = 10f, popForce = 20f;
+    float floatForce = 10f, moveForce = 10f, popForce = 20f, jumpForce = 200f;
     [SerializeField]
     float moveSpeed = 10f, maxVelocity = 20f;
     [SerializeField]
-    float immunityDuration = 1f;
+    float immunityDuration = 1f, doubleJumpDuration = 1f;
 
     Rigidbody2D rb2D;
     CircleCollider2D circleCollider;
     BoxCollider2D boxCollider;
 
     Vector2 movement;
-    bool isGrounded, isImmune;
+    bool isGrounded = false, isImmune = false, dblJumpEnabled = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,14 +35,34 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //If you hit the spacebar
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (bubbleEnabled)
-            {
-                BubblePop();
-            } else
-            {
-                BubbleEnter();
+            //Bubble debugging!
+            //if (bubbleEnabled)
+            //{
+            //    BubblePop();
+            //} else
+            //{
+            //    BubbleEnter();
+            //}
+
+            //Jump! Only if on the ground and 
+            if (!bubbleEnabled && (isGrounded || dblJumpEnabled)) {
+                if (isGrounded)
+                {
+                    StartCoroutine(DoubleJump());
+                    rb2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                }
+                else
+                {
+                    if (dblJumpEnabled)
+                    {
+                        rb2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                        dblJumpEnabled = false;
+                    }
+                }
+
             }
         }
         movement.x = Input.GetAxis("Horizontal");
@@ -57,16 +78,21 @@ public class PlayerController : MonoBehaviour
         } else
         {
             //Only allow movement if the crab is on the ground.
-            if (isGrounded)
+            if (isGrounded && movement.magnitude > 0.1)
             {
                 //if(rb2D.linearVelocity.magnitude < maxVelocity) rb2D.AddForce(movement * moveSpeed * Time.deltaTime * Vector2.right);
-                rb2D.MovePosition(new Vector2(transform.position.x, transform.position.y) + (movement * moveSpeed * Time.deltaTime * Vector2.right));
+                rb2D.MovePosition(
+                    new Vector2(transform.position.x, transform.position.y) + (movement * moveSpeed * Time.deltaTime * Vector2.right));
+            } else
+            {
+                if (rb2D.linearVelocity.magnitude < maxVelocity) rb2D.AddForce(movement * moveForce * Time.deltaTime * Vector2.right);
             }
         }
     }
 
     public void BubbleEnter()
     {
+        isGrounded = false;
         bubbleEnabled = true;
         SetBubble();
         rb2D.angularVelocity = 0f;
@@ -116,7 +142,14 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        isGrounded = (collision.gameObject.transform.tag == "Ground");
+        if(collision.gameObject.transform.CompareTag("Ground")) isGrounded = true;
+        Debug.Log("Grounded: " +  isGrounded);
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if(collision.gameObject.transform.CompareTag("Ground")) isGrounded = false;
+        Debug.Log("Grounded: " + isGrounded);
     }
 
     IEnumerator Immunity()
@@ -124,5 +157,12 @@ public class PlayerController : MonoBehaviour
         isImmune = true;
         yield return new WaitForSeconds(immunityDuration);
         isImmune = false;
+    }
+
+    IEnumerator DoubleJump()
+    {
+        dblJumpEnabled = true;
+        yield return new WaitForSeconds (doubleJumpDuration);
+        dblJumpEnabled = false;
     }
 }

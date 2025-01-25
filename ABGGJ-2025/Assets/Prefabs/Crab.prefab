@@ -161,11 +161,14 @@ MonoBehaviour:
   bubbleEnabled: 1
   bubble: {fileID: 2410869602851784874}
   floatForce: 10
-  moveForce: 20
+  moveForce: 50
   popForce: 50
-  moveSpeed: 20
+  jumpForce: 5
+  moveSpeed: 10
   maxVelocity: 10
   immunityDuration: 1
+  isGrounded: 0
+  isImmune: 0
 --- !u!1001 &3293337425321506299
 PrefabInstance:
   m_ObjectHideFlags: 0
