@@ -167,8 +167,7 @@ MonoBehaviour:
   moveSpeed: 10
   maxVelocity: 10
   immunityDuration: 1
-  isGrounded: 0
-  isImmune: 0
+  doubleJumpDuration: 1
 --- !u!1001 &3293337425321506299
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -240,13 +239,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a5bf312e37dbd78479e6ed1463b87a1a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 493587078808680100}
   m_SourcePrefab: {fileID: 100100000, guid: a5bf312e37dbd78479e6ed1463b87a1a, type: 3}
 --- !u!1 &2410869602851784874 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a5bf312e37dbd78479e6ed1463b87a1a, type: 3}
   m_PrefabInstance: {fileID: 3293337425321506299}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &493587078808680100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2410869602851784874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c10d6f6441e4af4bbe2733882f9b165, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effect: 2
+  pulseSpeed: 10
 --- !u!4 &3044135990327562768 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a5bf312e37dbd78479e6ed1463b87a1a, type: 3}
