@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour
         circleCollider = GetComponent<CircleCollider2D>();
         //renderer = gameObject.GetComponentInChildren<Renderer>();
         SetBubble();
+        GameManager.Instance.SetCameraTarget(transform);
     }
 
     // Update is called once per frame
