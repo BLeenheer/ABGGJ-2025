@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Prefabs")]
     [SerializeField]
-    GameObject playerController;
+    public GameObject playerController;
 
     Scene currentLevel;
     LevelManager currentLevelManager;
@@ -38,17 +38,27 @@ public class GameManager : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// Unloads the current menu and loads the home screen menu
+    /// </summary>
     public void LoadMainMenu()
     {
         SceneManager.LoadScene("MAIN");
     }
 
-
+    /// <summary>
+    /// Loads the specified level
+    /// </summary>
+    /// <param name="scene"></param>
     public void LoadLevel(Scene scene)
     {
         LoadLevel(scene.name);
     }
 
+    /// <summary>
+    /// Loads the specfied level
+    /// </summary>
+    /// <param name="sceneName"></param>
     public void LoadLevel(string sceneName)
     {
         if (currentLevel != null) SceneManager.UnloadSceneAsync(currentLevel);        

@@ -158,13 +158,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c63e68fced6e2e14ba30fb6f18cffd84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubbleEnabled: 0
+  bubbleEnabled: 1
   bubble: {fileID: 2410869602851784874}
   floatForce: 10
-  moveForce: 10
+  moveForce: 20
   popForce: 50
   moveSpeed: 20
   maxVelocity: 10
+  immunityDuration: 1
 --- !u!1001 &3293337425321506299
 PrefabInstance:
   m_ObjectHideFlags: 0

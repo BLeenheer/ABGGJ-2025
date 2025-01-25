@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -11,13 +12,15 @@ public class PlayerController : MonoBehaviour
     float floatForce = 10f, moveForce = 10f, popForce = 20f;
     [SerializeField]
     float moveSpeed = 10f, maxVelocity = 20f;
+    [SerializeField]
+    float immunityDuration = 1f;
 
     Rigidbody2D rb2D;
     CircleCollider2D circleCollider;
     BoxCollider2D boxCollider;
 
     Vector2 movement;
-    bool isGrounded;
+    bool isGrounded, isImmune;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -53,7 +56,8 @@ public class PlayerController : MonoBehaviour
             if (rb2D.linearVelocity.magnitude < maxVelocity) rb2D.AddForce(movement * moveForce * Time.deltaTime);
         } else
         {
-            if (isGrounded & movement.magnitude > 0.1)
+            //Only allow movement if the crab is on the ground.
+            if (isGrounded)
             {
                 //if(rb2D.linearVelocity.magnitude < maxVelocity) rb2D.AddForce(movement * moveSpeed * Time.deltaTime * Vector2.right);
                 rb2D.MovePosition(new Vector2(transform.position.x, transform.position.y) + (movement * moveSpeed * Time.deltaTime * Vector2.right));
@@ -95,6 +99,7 @@ public class PlayerController : MonoBehaviour
         //TODO: Play bubble pop or injury sound
         if (bubbleEnabled)
         {
+            StartCoroutine(Immunity());
             BubblePop();
         } else
         {
@@ -106,10 +111,18 @@ public class PlayerController : MonoBehaviour
     {
         //TODO: Play death sound
         LevelManager.Instance.RespawnPlayer();
+        Destroy(this.gameObject);
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
         isGrounded = (collision.gameObject.transform.tag == "Ground");
+    }
+
+    IEnumerator Immunity()
+    {
+        isImmune = true;
+        yield return new WaitForSeconds(immunityDuration);
+        isImmune = false;
     }
 }
