@@ -9,6 +9,7 @@ public class WinZone : MonoBehaviour
     void TriggerNextLevel()
     {
         Debug.Log("Crab made it! Next Level Triggered!");
+        Destroy(PlayerController.Instance.gameObject);
         LevelManager.Instance.NextLevel();
     }
 

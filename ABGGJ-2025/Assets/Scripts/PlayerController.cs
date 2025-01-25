@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController Instance;
+
     [SerializeField]
     bool bubbleEnabled;
     [SerializeField]
@@ -22,6 +24,11 @@ public class PlayerController : MonoBehaviour
 
     Vector2 movement;
     bool isGrounded = false, isImmune = false, dblJumpEnabled = false;
+
+    private void Awake()
+    {
+        if(Instance == null) Instance = this;
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -102,6 +109,8 @@ public class PlayerController : MonoBehaviour
 
     public void BubblePop()
     {
+        if (GameManager.Instance == null) Debug.LogWarning("GameManager not found by player!");
+        GameManager.Instance.IncrementBubblePopCount();
         bubbleEnabled = false;
         rb2D.SetRotation(0f);
         rb2D.angularVelocity = 0f;
@@ -137,6 +146,7 @@ public class PlayerController : MonoBehaviour
     {
         //TODO: Play death sound
         LevelManager.Instance.RespawnPlayer();
+        GameManager.Instance.IncrementDeathCount();
         Debug.Log("Crab Killed!");
         Destroy(this.gameObject);
     }

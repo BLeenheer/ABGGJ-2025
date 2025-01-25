@@ -1,5 +1,5 @@
-using JetBrains.Annotations;
-using System.Xml.Serialization;
+using System.Runtime.CompilerServices;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     GameObject pauseUI;
     [SerializeField]
     GameObject levelUI;
+    [SerializeField]
+    TextMeshProUGUI TMP_DeathCount, TMP_BubblePopCount;
 
     bool paused = false;
     string currentLevel;
@@ -87,7 +89,8 @@ public class GameManager : MonoBehaviour
     /// <param name="sceneName"></param>
     public void LoadLevel(string sceneName)
     {
-        if (currentLevel != null) SceneManager.UnloadSceneAsync(currentLevel);        
+        if (currentLevel != null) SceneManager.UnloadSceneAsync(currentLevel);
+        levelUI.SetActive(true);
         SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
         currentLevel = sceneName;
     }
@@ -116,6 +119,9 @@ public class GameManager : MonoBehaviour
     {
         deathCount = 0;
         bubblePopCount = 0;
+        TMP_DeathCount.text = "Deaths: " + deathCount.ToString();
+        TMP_BubblePopCount.text = "Popped: " + bubblePopCount.ToString();
+        levelUI.SetActive(false);
         Resume();
     }
 
@@ -145,6 +151,8 @@ public class GameManager : MonoBehaviour
     public void IncrementDeathCount()
     {
         deathCount++;
+        TMP_DeathCount.text = "Deaths: " + deathCount.ToString();
+        Debug.Log("Bubbles Popped: " + deathCount);
     }
 
     /// <summary>
@@ -153,5 +161,7 @@ public class GameManager : MonoBehaviour
     public void IncrementBubblePopCount()
     {
         bubblePopCount++;
+        TMP_BubblePopCount.text = "Popped: " + bubblePopCount.ToString();
+        Debug.Log("Bubbles Popped: " + bubblePopCount);
     }
 }
