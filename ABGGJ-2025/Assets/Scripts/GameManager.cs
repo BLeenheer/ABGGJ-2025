@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     public GameObject playerController;
 
-    Scene currentLevel;
+    string currentLevel;
     LevelManager currentLevelManager;
 
     void Awake()
@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        if (playerController == null) Debug.LogError("Player is not set in GameManager!");
     }
 
     // Update is called once per frame
@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
     {
         if (currentLevel != null) SceneManager.UnloadSceneAsync(currentLevel);        
         SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
-        currentLevel = SceneManager.GetSceneByName(sceneName);
+        currentLevel = sceneName;
     }
 
     public void SetLevelManager(LevelManager levelManager)

@@ -137,19 +137,20 @@ public class PlayerController : MonoBehaviour
     {
         //TODO: Play death sound
         LevelManager.Instance.RespawnPlayer();
+        Debug.Log("Crab Killed!");
         Destroy(this.gameObject);
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
         if(collision.gameObject.transform.CompareTag("Ground")) isGrounded = true;
-        Debug.Log("Grounded: " +  isGrounded);
+        //Debug.Log("Grounded: " +  isGrounded);
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
         if(collision.gameObject.transform.CompareTag("Ground")) isGrounded = false;
-        Debug.Log("Grounded: " + isGrounded);
+        //Debug.Log("Grounded: " + isGrounded);
     }
 
     IEnumerator Immunity()
