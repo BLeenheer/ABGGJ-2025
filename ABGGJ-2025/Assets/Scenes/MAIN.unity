@@ -499,7 +499,8 @@ Transform:
   m_LocalPosition: {x: 0.3948066, y: 0.20706572, z: -21.771366}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1975401074}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1588174872
@@ -670,8 +671,7 @@ Transform:
   m_LocalPosition: {x: 0.3948066, y: 0.20706572, z: -21.771366}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1975401074}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1975401073
@@ -700,11 +700,11 @@ Transform:
   m_GameObject: {fileID: 1975401073}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.25089338, y: -0.18146572, z: 21.771366}
+  m_LocalPosition: {x: 0, y: 0, z: 50}
   m_LocalScale: {x: 0.7500043, y: 0.7570134, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1864137255}
+  m_Father: {fileID: 1588174871}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1975401075
 SpriteRenderer:
@@ -1331,11 +1331,11 @@ PrefabInstance:
       objectReference: {fileID: 601320368}
     - target: {fileID: 4993395810636251191, guid: 474b1a1560f50e6479d1b8e00cf6ec14, type: 3}
       propertyPath: effect
-      value: 0.2
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 4993395810636251191, guid: 474b1a1560f50e6479d1b8e00cf6ec14, type: 3}
       propertyPath: pulseSpeed
-      value: 2
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7496365637752697810, guid: 474b1a1560f50e6479d1b8e00cf6ec14, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1344,6 +1344,10 @@ PrefabInstance:
     - target: {fileID: 8234411062168247613, guid: 474b1a1560f50e6479d1b8e00cf6ec14, type: 3}
       propertyPath: m_Name
       value: PauseCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8234411062168247613, guid: 474b1a1560f50e6479d1b8e00cf6ec14, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8270390048328329854, guid: 474b1a1560f50e6479d1b8e00cf6ec14, type: 3}
       propertyPath: m_Pivot.x

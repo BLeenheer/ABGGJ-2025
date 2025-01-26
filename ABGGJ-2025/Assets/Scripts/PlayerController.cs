@@ -155,14 +155,18 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void Injure()
     {
-        //TODO: Play bubble pop or injury sound
-        if (bubbleEnabled)
+        if (!isImmune)
         {
-            StartCoroutine(Immunity());
-            BubblePop();
-        } else
-        {
-            Kill();
+            //TODO: Play bubble pop or injury sound
+            if (bubbleEnabled)
+            {
+                StartCoroutine(Immunity());
+                BubblePop();
+            }
+            else
+            {
+                Kill();
+            }
         }
     }
 
@@ -190,10 +194,12 @@ public class PlayerController : MonoBehaviour
     IEnumerator Immunity()
     {
         isImmune = true;
+        Debug.Log("Crab is immune!");
         //renderer.material.color = new Color(renderer.material.color.r, renderer.material.color.g, renderer.material.color.b, 0.5f);
         yield return new WaitForSeconds(immunityDuration);
         //renderer.material.color = new Color(renderer.material.color.r, renderer.material.color.g, renderer.material.color.b, 1f);
         isImmune = false;
+        Debug.Log("Crab is not immune");
     }
 
     IEnumerator DoubleJump()
