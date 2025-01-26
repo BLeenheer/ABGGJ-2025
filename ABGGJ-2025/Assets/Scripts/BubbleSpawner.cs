@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class BubbleSpawner : MonoBehaviour
 {
-    public int spawnInterval;
-    private int frameCount;
+    public float spawnInterval;
+    private float time;
     /// <summary>
     /// The bubble to be spawned. This prefab needs the Bubble.cs script attached.
     /// </summary>
@@ -22,12 +22,12 @@ public class BubbleSpawner : MonoBehaviour
         //TODO:
         // - Instantiate a bubble at a regular interval. Not every frame, otherwise we'll have hundreds!
         // - Make sure the spawn interval is visible in the inspector so that we can change it without re-writing the code.
-        frameCount++;
-        if (frameCount >= spawnInterval)
+        time += Time.deltaTime;
+        if (time >= spawnInterval)
         {
             Vector3 spawnerPosition = transform.position;
             Instantiate(bubblePrefab, spawnerPosition, Quaternion.identity);
-            frameCount = 0;
+            time = 0;
         }
     }
 }
