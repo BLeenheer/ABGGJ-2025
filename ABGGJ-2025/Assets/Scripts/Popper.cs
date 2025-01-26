@@ -5,10 +5,9 @@ public class Popper : MonoBehaviour
     /// <summary>
     /// Overrides collision behaviour when disabled. The triggers are still called even when the component is disabled.
     /// </summary>
-    bool popEnabled;
-
-    [SerializeField]
-    bool popAndKill = false;
+    [HideInInspector]
+    public bool popEnabled;
+    public bool popAndKill = false;
 
     private void Awake()
     {

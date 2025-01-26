@@ -23,6 +23,17 @@ public class Bomb : Popper
         if (collision != null)
         {
             PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
+            if (playerController != null && popEnabled)
+            {
+                if (popAndKill)
+                {
+                    playerController.Kill();
+                }
+                else
+                {
+                    playerController.Injure();
+                }
+            }
             if (playerController != null)
             {
                 //PlayerController.Instance.GetComponent<Rigidbody>().AddExplosionForce(force, transform.position, 2f);
