@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0efa9bae163c87745aad4d7a6a02507f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnInterval: 5000
+  spawnInterval: 6
   bubblePrefab: {fileID: 8209107172248819846, guid: 0046864829cb7a542a3c1ae97b3ace94, type: 3}
 --- !u!1001 &2499087180191927149
 PrefabInstance:
