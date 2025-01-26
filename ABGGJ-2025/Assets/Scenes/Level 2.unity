@@ -624,6 +624,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1933696066}
     m_Modifications:
+    - target: {fileID: 154375381125223490, guid: 9151364484f991c4c8e1b386430a6a5c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.605
+      objectReference: {fileID: 0}
+    - target: {fileID: 154375381125223490, guid: 9151364484f991c4c8e1b386430a6a5c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 154375381125223490, guid: 9151364484f991c4c8e1b386430a6a5c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
     - target: {fileID: 3134452028925882122, guid: 9151364484f991c4c8e1b386430a6a5c, type: 3}
       propertyPath: m_Name
       value: Obstacle_Spikes (2)
@@ -751,6 +763,14 @@ PrefabInstance:
     - target: {fileID: 3570128616809042064, guid: 8879f16aa591a8f479c875128fd9f868, type: 3}
       propertyPath: m_Name
       value: Obstacle_Spikes2 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3674620218546769638, guid: 8879f16aa591a8f479c875128fd9f868, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.08750409
+      objectReference: {fileID: 0}
+    - target: {fileID: 3674620218546769638, guid: 8879f16aa591a8f479c875128fd9f868, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.19
       objectReference: {fileID: 0}
     - target: {fileID: 4895494332850220196, guid: 8879f16aa591a8f479c875128fd9f868, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1247,6 +1267,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1933696066}
     m_Modifications:
+    - target: {fileID: 154375381125223490, guid: 9151364484f991c4c8e1b386430a6a5c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 154375381125223490, guid: 9151364484f991c4c8e1b386430a6a5c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
     - target: {fileID: 3134452028925882122, guid: 9151364484f991c4c8e1b386430a6a5c, type: 3}
       propertyPath: m_Name
       value: Obstacle_Spikes (3)
@@ -18139,6 +18167,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1933696066}
     m_Modifications:
+    - target: {fileID: 154375381125223490, guid: 9151364484f991c4c8e1b386430a6a5c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 154375381125223490, guid: 9151364484f991c4c8e1b386430a6a5c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
     - target: {fileID: 3134452028925882122, guid: 9151364484f991c4c8e1b386430a6a5c, type: 3}
       propertyPath: m_Name
       value: Obstacle_Spikes (1)
@@ -19032,6 +19068,14 @@ PrefabInstance:
     - target: {fileID: 3570128616809042064, guid: 8879f16aa591a8f479c875128fd9f868, type: 3}
       propertyPath: m_Name
       value: Obstacle_Spikes2 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3674620218546769638, guid: 8879f16aa591a8f479c875128fd9f868, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.08750409
+      objectReference: {fileID: 0}
+    - target: {fileID: 3674620218546769638, guid: 8879f16aa591a8f479c875128fd9f868, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.17
       objectReference: {fileID: 0}
     - target: {fileID: 4895494332850220196, guid: 8879f16aa591a8f479c875128fd9f868, type: 3}
       propertyPath: m_LocalPosition.x

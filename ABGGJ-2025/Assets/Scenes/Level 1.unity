@@ -197,6 +197,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obstacle_Spikes2
       objectReference: {fileID: 0}
+    - target: {fileID: 3674620218546769638, guid: 8879f16aa591a8f479c875128fd9f868, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.203
+      objectReference: {fileID: 0}
     - target: {fileID: 4895494332850220196, guid: 8879f16aa591a8f479c875128fd9f868, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.3
