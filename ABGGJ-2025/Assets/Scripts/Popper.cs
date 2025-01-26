@@ -8,6 +8,9 @@ public class Popper : MonoBehaviour
     /// </summary>
     bool popEnabled;
 
+    [SerializeField]
+    bool popAndKill = false;
+
     private void Awake()
     {
         popEnabled = this.enabled;
@@ -25,13 +28,32 @@ public class Popper : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("Popper Trigger Enter");
         PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
-        if (playerController != null && popEnabled) playerController.Injure();
+        if (playerController != null && popEnabled) {
+            if (popAndKill)
+            {
+                playerController.Kill();
+            }
+            else {
+                playerController.Injure();
+            }
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
-        if (playerController != null && popEnabled) playerController.Injure();
+        if (playerController != null && popEnabled)
+        {
+            if (popAndKill)
+            {
+                playerController.Kill();
+            }
+            else
+            {
+                playerController.Injure();
+            }
+        }
     }
 }

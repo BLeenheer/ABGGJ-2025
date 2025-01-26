@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8616480485344796834}
   m_Layer: 0
-  m_Name: Bomb
+  m_Name: bomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -189,7 +189,7 @@ PrefabInstance:
       addedObject: {fileID: 4247555573122304983}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9dddbf3e4ece26144a88251caf23f2b0, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5555759574258053430}
+      addedObject: {fileID: 7954269684748265596}
   m_SourcePrefab: {fileID: 100100000, guid: 9dddbf3e4ece26144a88251caf23f2b0, type: 3}
 --- !u!4 &1233841363281840332 stripped
 Transform:
@@ -253,13 +253,13 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 1.3366175
---- !u!114 &5555759574258053430
+--- !u!114 &7954269684748265596
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -268,9 +268,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1897331018938536566}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09ca341d23fc6d948b2a4243e4e42304, type: 3}
+  m_Script: {fileID: 11500000, guid: cb50b7f7c207c0941a570e095583526c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  popAndKill: 0
+  force: 1
+  explosionPrefab: {fileID: 6949182822087083118, guid: e65e0b6bba7db7846a889c1764a9469e, type: 3}
 --- !u!1001 &1966211072227437460
 PrefabInstance:
   m_ObjectHideFlags: 0
