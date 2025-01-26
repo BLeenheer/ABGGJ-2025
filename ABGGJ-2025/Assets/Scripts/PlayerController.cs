@@ -1,6 +1,7 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
@@ -22,6 +23,8 @@ public class PlayerController : MonoBehaviour
     CircleCollider2D circleCollider;
     BoxCollider2D boxCollider;
 
+    //Renderer renderer;
+
     Vector2 movement;
     bool isGrounded = false, isImmune = false, dblJumpEnabled = false;
 
@@ -36,7 +39,9 @@ public class PlayerController : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
         circleCollider = GetComponent<CircleCollider2D>();
+        //renderer = gameObject.GetComponentInChildren<Renderer>();
         SetBubble();
+        GameManager.Instance.SetCameraTarget(transform);
     }
 
     // Update is called once per frame
@@ -80,7 +85,10 @@ public class PlayerController : MonoBehaviour
     {
         if (bubbleEnabled)
         {
+            //Floating passive force.
             if (rb2D.linearVelocity.magnitude < maxVelocity) rb2D.AddForce(Vector2.up * floatForce);
+
+            //Directional Force while floating
             if (rb2D.linearVelocity.magnitude < maxVelocity) rb2D.AddForce(movement * moveForce * Time.deltaTime);
         } else
         {
@@ -88,11 +96,15 @@ public class PlayerController : MonoBehaviour
             if (isGrounded && movement.magnitude > 0.1)
             {
                 //if(rb2D.linearVelocity.magnitude < maxVelocity) rb2D.AddForce(movement * moveSpeed * Time.deltaTime * Vector2.right);
-                rb2D.MovePosition(
-                    new Vector2(transform.position.x, transform.position.y) + (movement * moveSpeed * Time.deltaTime * Vector2.right));
+
+                //rb2D.MovePosition(new Vector2(transform.position.x, transform.position.y) + (movement * moveSpeed * Time.deltaTime * Vector2.right));
+
+                //Simplest solution is the best apparently!
+                rb2D.linearVelocity = new Vector2(movement.x * moveSpeed, rb2D.linearVelocityY);
             } else
             {
-                if (rb2D.linearVelocity.magnitude < maxVelocity) rb2D.AddForce(movement * moveForce * Time.deltaTime * Vector2.right);
+                //if (rb2D.linearVelocity.magnitude < maxVelocity) rb2D.AddForce(movement * moveForce * Time.deltaTime * Vector2.right);
+                rb2D.linearVelocity = new Vector2(movement.x * moveSpeed, rb2D.linearVelocityY);
             }
         }
     }
@@ -166,7 +178,9 @@ public class PlayerController : MonoBehaviour
     IEnumerator Immunity()
     {
         isImmune = true;
+        //renderer.material.color = new Color(renderer.material.color.r, renderer.material.color.g, renderer.material.color.b, 0.5f);
         yield return new WaitForSeconds(immunityDuration);
+        //renderer.material.color = new Color(renderer.material.color.r, renderer.material.color.g, renderer.material.color.b, 1f);
         isImmune = false;
     }
 

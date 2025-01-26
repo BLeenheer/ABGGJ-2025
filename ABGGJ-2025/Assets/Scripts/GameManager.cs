@@ -1,5 +1,6 @@
 using System.Runtime.CompilerServices;
 using TMPro;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -20,6 +21,10 @@ public class GameManager : MonoBehaviour
     GameObject levelUI;
     [SerializeField]
     TextMeshProUGUI TMP_DeathCount, TMP_BubblePopCount;
+
+    [Header("Camera")]
+    [SerializeField]
+    CinemachineCamera cinemachineCamera;
 
     bool paused = false;
     string currentLevel;
@@ -43,6 +48,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         if (playerController == null) Debug.LogError("Player is not set in GameManager!");
+        
     }
 
     // Update is called once per frame
@@ -163,5 +169,10 @@ public class GameManager : MonoBehaviour
         bubblePopCount++;
         TMP_BubblePopCount.text = "Popped: " + bubblePopCount.ToString();
         //Debug.Log("Bubbles Popped: " + bubblePopCount);
+    }
+
+    public void SetCameraTarget(Transform target)
+    {
+        cinemachineCamera.Target.TrackingTarget = target;
     }
 }
