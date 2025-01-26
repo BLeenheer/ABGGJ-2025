@@ -3,6 +3,11 @@ using UnityEngine;
 [RequireComponent (typeof(Collider2D))]
 public class WinZone : MonoBehaviour
 {
+    private void Start()
+    {
+        gameObject.GetComponent<Renderer>().enabled = false;
+    }
+
     /// <summary>
     /// Loads the next level
     /// </summary>

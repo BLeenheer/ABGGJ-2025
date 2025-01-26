@@ -98,7 +98,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.8
+  m_Radius: 0.7
 --- !u!114 &3404515508796007991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,6 +122,8 @@ MonoBehaviour:
   immunityDuration: 1
   doubleJumpDuration: 1
   normalRadius: 0.48
+  bubbleRadius: 0.7
+  playerRenderer: {fileID: 5836700492300652353}
 --- !u!1001 &3293337425321506299
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -294,5 +296,10 @@ PrefabInstance:
 --- !u!4 &4704868463937745966 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4bc0f94cedfafd146bdc3acddb968807, type: 3}
+  m_PrefabInstance: {fileID: 5098555873531204549}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &5836700492300652353 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 4bc0f94cedfafd146bdc3acddb968807, type: 3}
   m_PrefabInstance: {fileID: 5098555873531204549}
   m_PrefabAsset: {fileID: 0}
