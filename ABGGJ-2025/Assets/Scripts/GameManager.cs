@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape) && !mainMenuUI.activeSelf)
         {
             if (!paused)
             {
@@ -129,6 +129,17 @@ public class GameManager : MonoBehaviour
         TMP_BubblePopCount.text = "Popped: " + bubblePopCount.ToString();
         levelUI.SetActive(false);
         Resume();
+    }
+
+    /// <summary>
+    /// Respawns the player. Helps if stuck.
+    /// </summary>
+    public void RespawnPlayer()
+    {
+        if(paused) Resume();
+        Destroy(PlayerController.Instance.gameObject);
+        currentLevelManager.RespawnPlayer();
+        Debug.Log("Respawning Player");
     }
 
     /// <summary>

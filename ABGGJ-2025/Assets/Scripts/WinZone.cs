@@ -14,7 +14,6 @@ public class WinZone : MonoBehaviour
     void TriggerNextLevel()
     {
         Debug.Log("Crab made it! Next Level Triggered!");
-        Destroy(PlayerController.Instance.gameObject);
         LevelManager.Instance.NextLevel();
     }
 
@@ -23,11 +22,13 @@ public class WinZone : MonoBehaviour
     {
         PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
         if (playerController != null) TriggerNextLevel();
+        if(PlayerController.Instance is not null) Destroy(PlayerController.Instance.gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
         if (playerController != null) TriggerNextLevel();
+        if (PlayerController.Instance is not null) Destroy(PlayerController.Instance.gameObject);
     }
 }

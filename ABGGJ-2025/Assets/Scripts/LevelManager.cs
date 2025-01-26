@@ -15,6 +15,7 @@ public class LevelManager : MonoBehaviour
     private void Awake()
     {
         //I don't want to lose the new level manager if the scene is transitioning.
+        //This will override the "Instance" and the old instance will be unloaded.
         Instance = this;
         GameManager.Instance.SetLevelManager(this);
     }

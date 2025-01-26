@@ -1329,6 +1329,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 601320368}
+    - target: {fileID: 3642433861429829331, guid: 474b1a1560f50e6479d1b8e00cf6ec14, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -169
+      objectReference: {fileID: 0}
+    - target: {fileID: 4870688752757033639, guid: 474b1a1560f50e6479d1b8e00cf6ec14, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 601320368}
+    - target: {fileID: 4870688752757033639, guid: 474b1a1560f50e6479d1b8e00cf6ec14, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RespawnPlayer
+      objectReference: {fileID: 0}
     - target: {fileID: 4993395810636251191, guid: 474b1a1560f50e6479d1b8e00cf6ec14, type: 3}
       propertyPath: effect
       value: 0.03

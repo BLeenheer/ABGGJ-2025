@@ -13736,6 +13736,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 451311600003093642, guid: 2ef301240d529464b9a96f8822bef539, type: 3}
+      propertyPath: nextLevel
+      value: Level1
+      objectReference: {fileID: 0}
+    - target: {fileID: 451311600003093642, guid: 2ef301240d529464b9a96f8822bef539, type: 3}
       propertyPath: playerSpawnPoint
       value: 
       objectReference: {fileID: 2064920500}
