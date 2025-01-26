@@ -271,7 +271,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb50b7f7c207c0941a570e095583526c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  popAndKill: 0
+  popEnabled: 0
+  popAndKill: 1
   force: 1
   explosionPrefab: {fileID: 6949182822087083118, guid: e65e0b6bba7db7846a889c1764a9469e, type: 3}
 --- !u!1001 &1966211072227437460
