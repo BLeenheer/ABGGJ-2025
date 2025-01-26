@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4e0e403d23d3783459978c64748fc4c0
+guid: 7fea172249dab944482b7c96f41d224a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5986030973748356752
-    second: Explosion_0
+      213: -6866832159502873631
+    second: seaweed_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Explosion_0
+      name: seaweed_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 256
-        height: 256
+        x: 40
+        y: 15
+        width: 1177
+        height: 1650
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 096a1cc8477a21350800000000000000
-      internalID: 5986030973748356752
+      spriteID: 1eb4a90788c14b0a0800000000000000
+      internalID: -6866832159502873631
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Explosion_0: 5986030973748356752
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
