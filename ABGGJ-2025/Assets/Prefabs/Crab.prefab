@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c63e68fced6e2e14ba30fb6f18cffd84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubbleEnabled: 1
+  bubbleEnabled: 0
   bubble: {fileID: 2410869602851784874}
   floatForce: 10
   moveForce: 50
@@ -123,7 +123,6 @@ MonoBehaviour:
   doubleJumpDuration: 1
   normalRadius: 0.48
   bubbleRadius: 0.7
-  playerRenderer: {fileID: 5836700492300652353}
 --- !u!1001 &3293337425321506299
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -296,10 +295,5 @@ PrefabInstance:
 --- !u!4 &4704868463937745966 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4bc0f94cedfafd146bdc3acddb968807, type: 3}
-  m_PrefabInstance: {fileID: 5098555873531204549}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &5836700492300652353 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 4bc0f94cedfafd146bdc3acddb968807, type: 3}
   m_PrefabInstance: {fileID: 5098555873531204549}
   m_PrefabAsset: {fileID: 0}
