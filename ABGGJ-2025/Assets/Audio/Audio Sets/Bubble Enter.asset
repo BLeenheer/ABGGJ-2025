@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b1e328a41ec62a42b73a9dc0b47bb47, type: 3}
   m_Name: Bubble Enter
   m_EditorClassIdentifier: 
-  clipList: []
+  clipList:
+  - {fileID: 8300000, guid: 1b6dc91073f6096409345e897b42af72, type: 3}
+  - {fileID: 8300000, guid: 1b6dc91073f6096409345e897b42af72, type: 3}
