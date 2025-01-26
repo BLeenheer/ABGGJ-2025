@@ -999,7 +999,7 @@ PrefabInstance:
       objectReference: {fileID: 601320368}
     - target: {fileID: 2839487676379594341, guid: 2774ea77ff691d24a8884821f9326b4a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Level1
+      value: Level0
       objectReference: {fileID: 0}
     - target: {fileID: 3019160511921328811, guid: 2774ea77ff691d24a8884821f9326b4a, type: 3}
       propertyPath: m_IsActive
