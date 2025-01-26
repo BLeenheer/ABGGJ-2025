@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour
     GameObject bubble;
 
     [SerializeField]
+    AudioClipSet bubblePop, bubbleEnter;
+
+    [SerializeField]
     float floatForce = 10f, moveForce = 10f, popForce = 20f, jumpForce = 200f;
     [SerializeField]
     float moveSpeed = 10f, maxVelocity = 20f;
@@ -126,6 +129,7 @@ public class PlayerController : MonoBehaviour
     {
         isGrounded = false;
         bubbleEnabled = true;
+        AudioSource.PlayClipAtPoint(bubbleEnter.GetRandom(), transform.position);
         SetBubble();
         rb2D.angularVelocity = 0f;
         rb2D.AddForce(popForce * Vector2.up);
@@ -136,6 +140,7 @@ public class PlayerController : MonoBehaviour
     {
         if (GameManager.Instance == null) Debug.LogWarning("GameManager not found by player!");
         GameManager.Instance.IncrementBubblePopCount();
+        AudioSource.PlayClipAtPoint(bubblePop.GetRandom(), transform.position);
         bubbleEnabled = false;
         rb2D.SetRotation(0f);
         rb2D.angularVelocity = 0f;

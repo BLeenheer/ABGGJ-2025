@@ -113,6 +113,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bubbleEnabled: 0
   bubble: {fileID: 2410869602851784874}
+  bubblePop: {fileID: 11400000, guid: 5f4a2b911352a3147b8743bcc6a723e3, type: 2}
+  bubbleEnter: {fileID: 11400000, guid: f4135e05b68c26a41803a1f9943578bf, type: 2}
   floatForce: 10
   moveForce: 50
   popForce: 50
