@@ -10,7 +10,7 @@ public class PuffUp : MonoBehaviour
     float puffInterval = 4f;
     Animator animator;
     SkinnedMeshRenderer skinnedMeshRenderer;
-    public Collider2D popCollider;
+    public Collider2D collider;
     Popper popper;
 
     private void Start()
@@ -28,13 +28,13 @@ public class PuffUp : MonoBehaviour
         {
             //toggle the grow trigger
             if (animator.GetBool("puff")) {
-                animator.SetBool("puff", false);
-                popCollider.enabled = false; 
+                animator.SetBool("puff", false); 
+                collider.enabled = false; 
                 popper.enabled = false;
             }
             else {
                 animator.SetBool("puff", true);
-                popCollider.enabled = true;
+                collider.enabled = true;
                 popper.enabled = true;
             }
 

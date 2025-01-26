@@ -94,7 +94,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 22570f16a26807e40b1907f0b34af8b2, type: 3}
       propertyPath: m_Name
-      value: pufferfish 1
+      value: PufferFish
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -105,7 +105,7 @@ PrefabInstance:
       addedObject: {fileID: 5996630519910142124}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 22570f16a26807e40b1907f0b34af8b2, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4584212573884226033}
+      addedObject: {fileID: 1043324500264438792}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 22570f16a26807e40b1907f0b34af8b2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2948710200934927887}
@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09ca341d23fc6d948b2a4243e4e42304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4584212573884226033
+--- !u!114 &1043324500264438792
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,9 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puffInterval: 4
-  animator: {fileID: 2948710200934927887}
-  collider: {fileID: 4915322815948997993}
-  popper: {fileID: 5996630519910142124}
+  popCollider: {fileID: 4915322815948997993}
 --- !u!95 &2948710200934927887
 Animator:
   serializedVersion: 7

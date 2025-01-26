@@ -22,13 +22,15 @@ public class PlayerController : MonoBehaviour
     [Header("Rigidbody")]
     [SerializeField]
     float normalRadius = 0.48f;
+    [SerializeField]
     float bubbleRadius = 0.7f;
 
     Rigidbody2D rb2D;
     CircleCollider2D circleCollider;
     BoxCollider2D boxCollider;
 
-    //Renderer renderer;
+    //[SerializeField]
+    //Renderer playerRenderer;
 
     Vector2 movement;
     bool isGrounded = false, isImmune = false, dblJumpEnabled = false;
@@ -44,7 +46,7 @@ public class PlayerController : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
         circleCollider = GetComponent<CircleCollider2D>();
-        //renderer = gameObject.GetComponentInChildren<Renderer>();
+        //playerRenderer = gameObject.GetComponentInChildren<Renderer>();
         SetBubble();
         GameManager.Instance.SetCameraTarget(transform);
     }
@@ -194,12 +196,12 @@ public class PlayerController : MonoBehaviour
     IEnumerator Immunity()
     {
         isImmune = true;
-        Debug.Log("Crab is immune!");
-        //renderer.material.color = new Color(renderer.material.color.r, renderer.material.color.g, renderer.material.color.b, 0.5f);
+        //Debug.Log("Crab is immune!");
+        //playerRenderer.material.color = new Color(playerRenderer.material.color.r, playerRenderer.material.color.g, playerRenderer.material.color.b, 0.5f);
         yield return new WaitForSeconds(immunityDuration);
-        //renderer.material.color = new Color(renderer.material.color.r, renderer.material.color.g, renderer.material.color.b, 1f);
+        //playerRenderer.material.color = new Color(playerRenderer.material.color.r, playerRenderer.material.color.g, playerRenderer.material.color.b, 1f);
         isImmune = false;
-        Debug.Log("Crab is not immune");
+        //Debug.Log("Crab is not immune");
     }
 
     IEnumerator DoubleJump()
