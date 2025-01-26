@@ -37,7 +37,7 @@ public class Bubble : MonoBehaviour
         //Destroy this bubble when it collides with anything.
         PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
         //Adjusted to avoid calling "BubbleEnter" on anything but the real player. 
-        if (playerController != null) PlayerController.Instance.BubbleEnter();
+        if (playerController != null) playerController.BubbleEnter();
         Destroy(this.gameObject);
     }
 }
