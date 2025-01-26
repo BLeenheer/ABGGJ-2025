@@ -19,6 +19,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     float immunityDuration = 1f, doubleJumpDuration = 1f;
 
+    [Header("Rigidbody")]
+    [SerializeField]
+    float normalRadius = 0.48f;
+    float bubbleRadius = 0.7f;
+
     Rigidbody2D rb2D;
     CircleCollider2D circleCollider;
     BoxCollider2D boxCollider;
@@ -135,6 +140,13 @@ public class PlayerController : MonoBehaviour
         bubble.SetActive(bubbleEnabled);
         //boxCollider.enabled = !bubbleEnabled;
         //circleCollider.enabled = bubbleEnabled;
+        if (bubbleEnabled)
+        {
+            circleCollider.radius = bubbleRadius;
+        } else
+        {
+            circleCollider.radius = normalRadius;
+        }
         rb2D.freezeRotation = !bubbleEnabled;
     }
 
