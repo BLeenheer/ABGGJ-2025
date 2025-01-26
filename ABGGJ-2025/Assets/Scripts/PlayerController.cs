@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
             Instance = this;
         } else
         {
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
         }
     }
 
