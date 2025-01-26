@@ -12,6 +12,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     Transform playerSpawnPoint;
 
+    bool isRespawning;
+
     private void Awake()
     {
         //I don't want to lose the new level manager if the scene is transitioning.
@@ -30,7 +32,13 @@ public class LevelManager : MonoBehaviour
     /// </summary>
     public void RespawnPlayer()
     {
-        Instantiate(GameManager.Instance.playerController, playerSpawnPoint.transform.position, new Quaternion(0,0,0,0));
+        if (!isRespawning)
+        {
+            isRespawning = true;
+            Debug.Log("LevelManager: Respawning Player");
+            Instantiate(GameManager.Instance.playerController, playerSpawnPoint.transform.position, new Quaternion(0, 0, 0, 0));
+            isRespawning = false;
+        }
     }
 
     /// <summary>

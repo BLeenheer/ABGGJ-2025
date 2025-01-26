@@ -37,7 +37,8 @@ public class Bubble : MonoBehaviour
         //Play a pop sound (waiting on audio)
         //Destroy this bubble when it collides with anything.
         PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
-        if (playerController != null) playerController.BubbleEnter();
+        //Adjusted to avoid calling "BubbleEnter" on anything but the real player. 
+        if (playerController != null) PlayerController.Instance.BubbleEnter();
         Destroy(this.gameObject);
     }
 }

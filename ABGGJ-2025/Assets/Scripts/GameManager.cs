@@ -139,7 +139,7 @@ public class GameManager : MonoBehaviour
         if(paused) Resume();
         Destroy(PlayerController.Instance.gameObject);
         currentLevelManager.RespawnPlayer();
-        Debug.Log("Respawning Player");
+        Debug.Log("GameManager: Respawning Player");
     }
 
     /// <summary>
