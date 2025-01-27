@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     GameObject levelUI;
     [SerializeField]
-    TextMeshProUGUI TMP_DeathCount, TMP_BubblePopCount;
+    TextMeshProUGUI TMP_DeathCount, TMP_BubblePopCount, TMP_LevelLabel;
 
     [Header("Camera")]
     [SerializeField]
@@ -85,7 +85,6 @@ public class GameManager : MonoBehaviour
     public void LoadLevel(Scene scene)
     {
         mainMenuUI.SetActive(false);
-        levelUI.SetActive(true);
         LoadLevel(scene.name);
     }
 
@@ -99,6 +98,7 @@ public class GameManager : MonoBehaviour
         levelUI.SetActive(true);
         SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
         currentLevel = sceneName;
+        TMP_LevelLabel.text = currentLevel;
     }
 
     public void SetLevelManager(LevelManager levelManager)

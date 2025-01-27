@@ -1,5 +1,7 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
+[RequireComponent (typeof(AudioSource))]
 public class BubbleSpawner : MonoBehaviour
 {
     public float spawnInterval;
@@ -10,10 +12,14 @@ public class BubbleSpawner : MonoBehaviour
     [SerializeField]
     GameObject bubblePrefab;
 
+    [SerializeField]
+    AudioClipSet bubbleSpawnClipSet;
+    AudioSource audioSource;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame. Put your regular logic here.
@@ -27,6 +33,7 @@ public class BubbleSpawner : MonoBehaviour
         {
             Vector3 spawnerPosition = transform.position;
             Instantiate(bubblePrefab, spawnerPosition, Quaternion.identity);
+            audioSource.PlayOneShot(bubbleSpawnClipSet.GetRandom());
             time = 0;
         }
     }
