@@ -72,10 +72,10 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void LoadMainMenu()
     {
+        //ResetGame();
+        //mainMenuUI.SetActive(true);
+        //levelUI.SetActive(false);
         SceneManager.LoadScene("MAIN");
-        ResetGame();
-        mainMenuUI.SetActive(true);
-        levelUI.SetActive(false);
     }
 
     /// <summary>
@@ -125,9 +125,9 @@ public class GameManager : MonoBehaviour
     {
         deathCount = 0;
         bubblePopCount = 0;
-        TMP_DeathCount.text = "Deaths: " + deathCount.ToString();
-        TMP_BubblePopCount.text = "Popped: " + bubblePopCount.ToString();
-        levelUI.SetActive(false);
+        if (TMP_DeathCount is not null) TMP_DeathCount.text = "Deaths: " + deathCount.ToString();
+        if (TMP_BubblePopCount is not null) TMP_BubblePopCount.text = "Popped: " + bubblePopCount.ToString();
+        if (levelUI is not null) levelUI.SetActive(false);
         Resume();
     }
 
@@ -136,7 +136,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void RespawnPlayer()
     {
-        if(paused) Resume();
+        if (paused) Resume();
         Destroy(PlayerController.Instance.gameObject);
         currentLevelManager.RespawnPlayer();
         Debug.Log("GameManager: Respawning Player");

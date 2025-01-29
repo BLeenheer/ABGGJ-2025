@@ -131,11 +131,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7248890925039687209}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 09ca341d23fc6d948b2a4243e4e42304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  popEnabled: 0
+  popAndKill: 0
 --- !u!114 &1043324500264438792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,7 +181,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7248890925039687209}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}

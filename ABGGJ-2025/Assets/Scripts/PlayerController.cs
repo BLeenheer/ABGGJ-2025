@@ -40,13 +40,11 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
+        if (Instance != null)
         {
-            Instance = this;
-        } else
-        {
-            //Destroy(this.gameObject);
+            Destroy(Instance.gameObject);
         }
+        Instance = this;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
